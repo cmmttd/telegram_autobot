@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.9"
 
 services:
   postgres:
@@ -8,5 +8,15 @@ services:
       - 5433:5432
     environment:
       - POSTGRES_PASSWORD=password
-#    volumes:
-#      - $PWD/src/main/resources/val/:/docker-entrypoint-initdb.d/
+  #    volumes:
+  #      - $PWD/src/main/resources/val/:/docker-entrypoint-initdb.d/
+
+  autobot-app:
+    container_name: autobot-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN_AUTO}
+    depends_on:
+      - postgres
