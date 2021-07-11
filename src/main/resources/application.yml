@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: Kotlin Telegram Autobot
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postgres
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 16
+      auto-commit: false
+      connection-timeout: 10000
+      idle-timeout: 60000
+      minimum-idle: 2
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.format_sql: true
+      hibernate.jdbc.lob.non_contextual_creation: true
